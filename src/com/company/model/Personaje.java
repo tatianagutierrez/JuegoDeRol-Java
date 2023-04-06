@@ -1,7 +1,6 @@
 package com.company.model;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Personaje {
@@ -11,7 +10,7 @@ public abstract class Personaje {
     String apodo;
     String fechaNacimiento;
     int edad;
-    int salud;
+    double salud;
     int velocidad;
     int destreza;
     int fuerza;
@@ -38,24 +37,130 @@ public abstract class Personaje {
 
     //Setters y getters
 
-    public int getSalud() {
+    public double getSalud() {
         return salud;
     }
 
-    public void setSalud(int salud) {
+    public void setSalud(double salud) {
         this.salud = salud;
     }
 
+    public String getRaza() {
+        return raza;
+    }
 
-    //METODOS
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
 
-    /*
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApodo() {
+        return apodo;
+    }
+
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public void setFuerza(int fuerza) {
+        this.fuerza = fuerza;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getArmadura() {
+        return armadura;
+    }
+
+    public void setArmadura(int armadura) {
+        this.armadura = armadura;
+    }
+//METODOS
+
 
         // CREAR PERSONAJE ALEATORIO
-    public Personaje generarPersonaje(){
+    public abstract Personaje crearPersonaje(Object[] d);
+
+    /*
+    public Object[] datosAleatorios(){
+        Random random = new Random();
+
+
+        int numNombre = random.nextInt(10)+1;
+        String[] nombreApodo = generarNombreYApodo(numRaza, numNombre);
+        String nombre = nombreApodo[0];
+        String apodo = nombreApodo[1];
+
+
+        String nombre = "Calipsus";
+        String apodo = "El gladiador";
+
+        String fechaNacimiento = generarFechaNacimientoAleatoria();
+        int edad = random.nextInt(300)+1;
+        int velocidad = random.nextInt(10)+1;
+        int destreza = random.nextInt(5)+1;
+        int fuerza = random.nextInt(10)+1;
+        int nivel = random.nextInt(10)+1;
+        int armadura = random.nextInt(10)+1;
+
+        return new Object[]{nombre, apodo, fechaNacimiento, edad, velocidad, destreza, fuerza, nivel, armadura};
+        //return new String[]{nombre, apodo, fechaNacimiento, String.valueOf(edad), String.valueOf(velocidad)};
+    }
+    */
+
+    /*
+    public Personaje generarPersonaje(int numRaza){
 
         Random random = new Random();
-        int numRaza = random.nextInt(3)+1;
 
         int numNombre = random.nextInt(10)+1;
         String[] nombreApodo = generarNombreYApodo(numRaza, numNombre);
@@ -70,43 +175,38 @@ public abstract class Personaje {
         int nivel = random.nextInt(10)+1;
         int armadura = random.nextInt(10)+1;
 
-        /*
+
         if (numRaza == 1){
-            raza = "Humano";
-            return new Humano(raza, nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
+            return new Humano("Humano", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
         else if (numRaza == 2) {
-            raza = "Orco";
-            return new Orco(raza, nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
+            return new Orco("Orco", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
         else{
-            raza = "Elfo";
-            return new Elfo(raza, nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
+            return new Elfo("Elfo", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
 
 
 
-        return generarRaza(numRaza, nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
-
     }
+    */
 
+    /*
     private Personaje generarRaza(int numRaza, String nombre, String apodo, String fechaNacimiento, int edad, int salud, int velocidad, int destreza, int fuerza, int nivel, int armadura){
         String raza;
         if (numRaza == 1){
             raza = "Humano";
-            return new Humano(raza, nombre, apodo, fechaNacimiento, edad, salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
         else if (numRaza == 2) {
             raza = "Orco";
-            return new Orco(raza, nombre, apodo, fechaNacimiento, edad, salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
         else{
             raza = "Elfo";
-            return new Elfo(raza, nombre, apodo, fechaNacimiento, edad, salud ,velocidad, destreza, fuerza, nivel, armadura);
         }
+        return new Orco(raza, nombre, apodo, fechaNacimiento, edad, salud ,velocidad, destreza, fuerza, nivel, armadura);
     }
 
-
+    */
     // TODO: Consumir una api con nombres ??
     private String[] generarNombreYApodo(int numRaza, int numNombre){
 
@@ -154,39 +254,6 @@ public abstract class Personaje {
         return dia + "/" + mes + "/" + anio;
     }
 
-        // CREAR PERSONAJE MANUALMENTE
-    //TODO: Los datos tienen que ser ingresados desde la UI
-    public Personaje generarPersonajeManualmente(){
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Raza (1.Humano, 2.Orco, 3.Elfo): ");
-        int numRaza = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nombre: ");
-        String nombre = sc.next();
-        System.out.print("Apodo: ");
-        String apodo = sc.next();
-        System.out.print("Fecha de nacimiento (dd/mm/aa): ");
-        String fechaNacimiento = sc.next();
-        System.out.print("Edad: ");
-        int edad = sc.nextInt();
-
-        //TODO: Validar datos que no se pasen del maximo ni del minimo
-        System.out.print("Velocidad (1 a 10): ");
-        int velocidad = sc.nextInt();
-        System.out.print("Destreza (1 a 5): ");
-        int destreza = sc.nextInt();
-        System.out.print("Fuerza (1 a 10): ");
-        int fuerza = sc.nextInt();
-        System.out.print("Nivel (1 a 10): ");
-        int nivel = sc.nextInt();
-        System.out.print("Armadura (1 a 10): ");
-        int armadura = sc.nextInt();
-
-        return generarRaza(numRaza, nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
-    }
-    */
-
         // CALCULOS
     private int calcularPoderDisparo(int destreza, int fuerza, int nivelPersonaje){
         return destreza * fuerza * nivelPersonaje;
@@ -209,14 +276,21 @@ public abstract class Personaje {
         return Math.round(calcularPoderDisparo(destreza, fuerza, nivelPersonaje) * calcularEfectividadDisparo());
     }
 
-    // TODO: Bajar? se hacen eternas las partidas porque la defensa es alta
+    // TODO: O le doy una variablidad como la efectividadDisparo o hago que se desgaste el poder en cada vuelta (por ejemplo bajar 1 punto desde 20)
     public int calcularPoderDefensa(int armadura, int velocidad){
         return armadura * velocidad;
     }
+
     public abstract double atacar(int VA, int PDEF);
 
-    public void recibirDanio(int danioProvocado, Personaje personaje2) {
-        personaje2.setSalud(salud - danioProvocado);
+    public void recibirDanio(double danioProvocado) {
+        double salud = this.salud - danioProvocado;
+
+        if (salud < 0) {
+            salud = 0;
+        }
+
+        this.setSalud(salud);
     }
 
     @Override

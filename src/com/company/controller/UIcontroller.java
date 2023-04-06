@@ -4,8 +4,8 @@ public class UIcontroller {
 
     GameController gameController = new GameController();
 
-    public void crearJuego(String nombreJugador){
-        gameController.iniciarJuego(nombreJugador);
+    public void crearJuego(String nombre, int opcionCrearJugadores){
+        gameController.iniciarJuego(nombre, opcionCrearJugadores);
     }
 
     public void leerHistorial(){
