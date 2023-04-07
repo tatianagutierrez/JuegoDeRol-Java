@@ -1,7 +1,6 @@
 package com.company.model;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Personaje {
 
@@ -129,130 +128,6 @@ public abstract class Personaje {
 
         // CREAR PERSONAJE ALEATORIO
     public abstract Personaje crearPersonaje(Object[] d);
-
-    /*
-    public Object[] datosAleatorios(){
-        Random random = new Random();
-
-
-        int numNombre = random.nextInt(10)+1;
-        String[] nombreApodo = generarNombreYApodo(numRaza, numNombre);
-        String nombre = nombreApodo[0];
-        String apodo = nombreApodo[1];
-
-
-        String nombre = "Calipsus";
-        String apodo = "El gladiador";
-
-        String fechaNacimiento = generarFechaNacimientoAleatoria();
-        int edad = random.nextInt(300)+1;
-        int velocidad = random.nextInt(10)+1;
-        int destreza = random.nextInt(5)+1;
-        int fuerza = random.nextInt(10)+1;
-        int nivel = random.nextInt(10)+1;
-        int armadura = random.nextInt(10)+1;
-
-        return new Object[]{nombre, apodo, fechaNacimiento, edad, velocidad, destreza, fuerza, nivel, armadura};
-        //return new String[]{nombre, apodo, fechaNacimiento, String.valueOf(edad), String.valueOf(velocidad)};
-    }
-    */
-
-    /*
-    public Personaje generarPersonaje(int numRaza){
-
-        Random random = new Random();
-
-        int numNombre = random.nextInt(10)+1;
-        String[] nombreApodo = generarNombreYApodo(numRaza, numNombre);
-        String nombre = nombreApodo[0];
-        String apodo = nombreApodo[1];
-
-        String fechaNacimiento = generarFechaNacimientoAleatoria();
-        int edad = random.nextInt(300)+1;
-        int velocidad = random.nextInt(10)+1;
-        int destreza = random.nextInt(5)+1;
-        int fuerza = random.nextInt(10)+1;
-        int nivel = random.nextInt(10)+1;
-        int armadura = random.nextInt(10)+1;
-
-
-        if (numRaza == 1){
-            return new Humano("Humano", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
-        }
-        else if (numRaza == 2) {
-            return new Orco("Orco", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
-        }
-        else{
-            return new Elfo("Elfo", nombre, apodo, fechaNacimiento, edad, this.salud ,velocidad, destreza, fuerza, nivel, armadura);
-        }
-
-
-
-    }
-    */
-
-    /*
-    private Personaje generarRaza(int numRaza, String nombre, String apodo, String fechaNacimiento, int edad, int salud, int velocidad, int destreza, int fuerza, int nivel, int armadura){
-        String raza;
-        if (numRaza == 1){
-            raza = "Humano";
-        }
-        else if (numRaza == 2) {
-            raza = "Orco";
-        }
-        else{
-            raza = "Elfo";
-        }
-        return new Orco(raza, nombre, apodo, fechaNacimiento, edad, salud ,velocidad, destreza, fuerza, nivel, armadura);
-    }
-
-    */
-    // TODO: Consumir una api con nombres ??
-    private String[] generarNombreYApodo(int numRaza, int numNombre){
-
-        String [][] nombresHumanos = {{"Ivar", "El arquero"}, {"Gerda", "La fortaleza"}, {"Atila", "El húngaro"}, {"Eric", "El hacha sangrienta"}, {"César", "El Divino"}, {"Leónidas", "El hijo del león"}, {"Helga", "La daga"}, {"Sigrid", "La victoria"}, {"William", "El cuervo"}, {"Ian", "El destructor"}};
-
-        String [][] nombresOrcos = {{"Kruhlu", "Sangre salvaje"}, {"Ulumpha", "Martillo estruendoso"}, {"Anakkin", "Reliquia del fuego"}, {"Ayleids", "Sombra de ira"}, {"Tjasatheni", "Colmillo de demonio"}, {"Sinnamnuria", "Rugido silencioso"}, {"Trurnuk", "Puño de roca"}, {"Xoruk", "Paso fuerte"}, {"Xoruk", "Furia Gigante"}, {"Dakagrod", "Golpes de piedra"}};
-
-        String [][] nombresElfos = {{"Fëanor", "Espíritu de fuego"}, {"Legolas", "Hoja verde"}, {"Arwen", "Doncella noble"}, {"Isildur", "Sirviente de la Luna"}, {"Lúthien", "Hija del crepúsculo"}, {"Miriel", "Mujer de las agujas"}, {"Angrod", "Héroe de hierro"}, {"Círdan", "Carpintero de barcos"}, {"Mablung", "Mano pesada"}, {"Celeborn ", "Árbol de plata"}};
-
-        // http://escueladeprogramacion.es/snippets/Java/Algoritmos/Matrices/Recorrer.html COMO RECORRER MATRIZ
-
-        String nombre = "";
-        String apodo = "";
-
-        if (numRaza == 1){
-            for (int i = 0; i < numNombre; i++) {
-                nombre = nombresHumanos[i][0];
-                apodo = nombresHumanos[i][1];
-            }
-        }
-        else if (numRaza == 2) {
-            for (int i = 0; i < numNombre; i++) {
-                nombre = nombresOrcos[i][0];
-                apodo = nombresOrcos[i][1];
-            }
-        }
-        else {
-            for (int i = 0; i < numNombre; i++) {
-                nombre = nombresElfos[i][0];
-                apodo = nombresElfos[i][1];
-            }
-        }
-
-        return new String[]{nombre, apodo};
-    }
-
-
-    private String generarFechaNacimientoAleatoria(){
-        Random random = new Random();
-
-        int dia = random.nextInt(31)+1;
-        int mes = random.nextInt(12)+1;
-        int anio = ThreadLocalRandom.current().nextInt(1800, 2022)+1;
-
-        return dia + "/" + mes + "/" + anio;
-    }
 
         // CALCULOS
     private int calcularPoderDisparo(int destreza, int fuerza, int nivelPersonaje){

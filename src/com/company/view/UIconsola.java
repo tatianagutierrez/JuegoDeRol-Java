@@ -1,5 +1,8 @@
 
 package com.company.view;
+import com.company.controller.GameController;
+
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class UIconsola {
@@ -39,7 +42,7 @@ public class UIconsola {
         return sc.nextInt();
     }
 
-    public Object[] ingresarDatosPersonaje(){
+    public Object[] ingresarDatosPersonaje() {
         System.out.print("Raza (1.Humano, 2.Orco, 3.Elfo): ");
         int numRaza = sc.nextInt();
         sc.nextLine();
@@ -48,12 +51,13 @@ public class UIconsola {
         System.out.print("Apodo: ");
         String apodo = sc.next();
 
-        //TODO: No tendria que ingresar la edad sino que el sistema la calcula a partir de la edad
-        System.out.print("Fecha de nacimiento (dd/mm/aa): ");
+        System.out.print("Fecha de nacimiento (dd/mm/aaaa): ");
         String fechaNacimiento = sc.next();
-        System.out.print("Edad: ");
-        int edad = sc.nextInt();
 
+        GameController controller = new GameController();
+        int edad = controller.calcularEdad(convertirStringACalender(fechaNacimiento));
+
+        System.out.println("Edad: " + edad);
 
         System.out.print("Velocidad (1 a 10): ");
         int velocidad = sc.nextInt();
@@ -68,6 +72,17 @@ public class UIconsola {
 
         return new Object[]{numRaza, nombre, apodo, fechaNacimiento, edad, velocidad, destreza, fuerza, nivel, armadura};
         //Devuelvo y despues el controller valida los datos
+    }
+
+    private Calendar convertirStringACalender(String fecha) {
+        int dia = Integer.parseInt(fecha.substring(0, 2));
+        int mes = Integer.parseInt(fecha.substring(3, 5));
+        int anio = Integer.parseInt(fecha.substring(6, 10));
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(anio, mes, dia);
+
+        return calendar;
     }
 
 }

@@ -3,13 +3,10 @@ package com.company.controller;
 import com.company.model.*;
 import com.company.view.UIconsola;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class GameController {
-
-    //Tengo que tener los objetos model y el view
 
     Jugador mainPlayer = new Jugador();
     Jugador pcPlayer = new Jugador();
@@ -19,8 +16,6 @@ public class GameController {
     Elfo elfo;
     Orco orco;
 
-    //TODO: Constructor??
-
     public void iniciarJuego(String nombre, int opcionCrearJugadores){
 
         mainPlayer.setNombre(nombre);
@@ -29,7 +24,6 @@ public class GameController {
         System.out.println("Bienvenido " + nombre);
 
         if (opcionCrearJugadores == 1) {
-            System.out.println("Ha decidio crear los personajes manualmente");
 
             for (int i = 0; i < 3; i++) {
                 System.out.println("Personaje de main player " + i);
@@ -42,7 +36,6 @@ public class GameController {
              //cambiar por UIconsola.printMsg()
         }
         else {
-            System.out.println("Ha decidio crear los personajes aleatoriamente");
 
             for (int i = 0; i < 3; i++) {
                 System.out.println("Personaje de main player " + i);
@@ -63,51 +56,82 @@ public class GameController {
 
     }
 
-    //TODO: Ver si lo puedo dejar en Personaje aunque sea cLase abstracta
     public Object[] datosAleatorios(){
         Random random = new Random();
         int numRaza = random.nextInt(3)+1;
 
-        /*
-        int numNombre = random.nextInt(10)+1;
-        String[] nombreApodo = generarNombreYApodo(numRaza, numNombre);
+        int numNombre = random.nextInt(29)+1;
+        int numApodo = random.nextInt(29)+1;
+        String[] nombreApodo = generarNombreYApodo(numNombre, numApodo);
         String nombre = nombreApodo[0];
         String apodo = nombreApodo[1];
-         */
 
-        //TODO: Cambiar: esta harcodeado
-        String nombre = "Calipsus";
-        String apodo = "El gladiador";
-        //String fechaNacimiento = generarFechaNacimientoAleatoria();
-        String fechaNacimiento = "12/06/2000";
+        Calendar fechaNacimiento = generarFechaNacimientoAleatoria();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFormateada = sdf.format(fechaNacimiento.getTime());
 
-        int edad = random.nextInt(300)+1;
+        int edad = calcularEdad(fechaNacimiento);
+
         int velocidad = random.nextInt(10)+1;
         int destreza = random.nextInt(5)+1;
         int fuerza = random.nextInt(10)+1;
         int nivel = random.nextInt(10)+1;
         int armadura = random.nextInt(10)+1;
 
-        return new Object[]{numRaza, nombre, apodo, fechaNacimiento, edad, velocidad, destreza, fuerza, nivel, armadura};
-        //return new String[]{nombre, apodo, fechaNacimiento, String.valueOf(edad), String.valueOf(velocidad)};
+        return new Object[]{numRaza, nombre, apodo, fechaFormateada, edad, velocidad, destreza, fuerza, nivel, armadura};
     }
+
+
+    // Metodos auxiliares a datosAleatorios()
+    private String[] generarNombreYApodo(int numNombre, int numApodo){
+
+        List<String> nombres = Arrays.asList("Ivar", "Gerda", "Atila", "Eric", "César", "Leónidas", "Helga", "Sigrid", "William", "Ian", "Kruhlu", "Ulumpha", "Anakkin", "Ayleids", "Tjasatheni", "Sinnamnuria", "Trurnuk", "Xoruk", "Dakagrod", "Fëanor", "Legolas", "Arwen", "Isildur", "Lúthien", "Miriel", "Angrod", "Círdan", "Mablung", "Celeborn");
+
+        List<String> apodos = Arrays.asList("El arquero", "La fortaleza", "El húngaro", "El hacha sangrienta", "El Divino", "El hijo del león", "La daga", "La victoria", "El cuervo", "El destructor", "Sangre salvaje", "Martillo estruendoso", "Reliquia del fuego", "Sombra de ira", "Colmillo de demonio", "Rugido silencioso", "Puño de roca", "Furia Gigante", "Golpes de piedra", "Espíritu de fuego", "Hoja verde", "Doncella noble", "Sirviente de la Luna", "Hijo del crepúsculo", "Paso fuerte", "Héroe de hierro", "Carpintero de barcos", "Mano pesada", "Árbol de plata");
+
+        String nombre = nombres.get(numNombre);
+        String apodo = apodos.get(numApodo);
+
+        return new String[]{nombre, apodo};
+    }
+
+    private Calendar generarFechaNacimientoAleatoria(){
+
+        Random random = new Random();
+        Calendar fecha = Calendar.getInstance();
+        fecha.set (random.nextInt(300)+1723, random.nextInt(12)+1, random.nextInt(30)+1);
+
+        return fecha;
+    }
+
+
+    public int calcularEdad(Calendar fechaDeNacimiento){
+        Calendar now = Calendar.getInstance();
+        int anio = now.get(Calendar.YEAR) - fechaDeNacimiento.get(Calendar.YEAR);
+        if (now.get(Calendar.MONTH) < fechaDeNacimiento.get(Calendar.MONTH) ||
+                (now.get(Calendar.MONTH) == fechaDeNacimiento.get(Calendar.MONTH) &&
+                        now.get(Calendar.DAY_OF_MONTH) < fechaDeNacimiento.get(Calendar.DAY_OF_MONTH))) {
+            anio--;
+        }
+        return anio;
+    }
+
 
     //TODO: Cambiar nombre a crearCarta porque crea una a la vez
     public void crearMazo(Jugador player ,Object[] datos) {
-        //for (int i = 0; i < 3; i++) {
-            int numRaza = (int) datos[0];
+        int numRaza = (int) datos[0];
 
-            if (numRaza == 1) {
-                humano = new Humano();
-                player.agregarPersonjae(humano.crearPersonaje(datos));
-            } else if (numRaza == 2) {
-                orco = new Orco();
-                player.agregarPersonjae(orco.crearPersonaje(datos));
-            } else {
-                elfo = new Elfo();
-                player.agregarPersonjae(elfo.crearPersonaje(datos));
-            }
-        //}
+        if (numRaza == 1) {
+            humano = new Humano();
+            player.agregarPersonje(humano.crearPersonaje(datos));
+        } else if (numRaza == 2) {
+            orco = new Orco();
+            player.agregarPersonje(orco.crearPersonaje(datos));
+        } else {
+            elfo = new Elfo();
+            player.agregarPersonje(elfo.crearPersonaje(datos));
+        }
+
     }
 
     public void iniciarBatalla() {
@@ -129,7 +153,6 @@ public class GameController {
             System.out.println("\n Personjae PC " + pjPcPlayer);
 
             //Condicionales para empezar la ronda
-
             int cantAtaquesMainPlayer = 0;
             int cantAtaquesPcPlayer = 0;
             double saludMainPlayer = pjMainPlayer.getSalud();
