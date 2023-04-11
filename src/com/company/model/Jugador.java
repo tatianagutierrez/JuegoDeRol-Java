@@ -24,7 +24,7 @@ public class Jugador {
         this.listaPersonajes = listaPersonajes;
     }
 
-    public void agregarPersonjae(Personaje pj){
+    public void agregarPersonje(Personaje pj){
         listaPersonajes.add(pj);
     }
 
@@ -41,4 +41,10 @@ public class Jugador {
         int indexRandom = random.nextInt(listaPersonajes.size());
         return listaPersonajes.get(indexRandom);
     }
+
+    public Personaje obtenerPersonajeByIndex(int index){
+        return listaPersonajes.get(index);
+    }
+
+
 }

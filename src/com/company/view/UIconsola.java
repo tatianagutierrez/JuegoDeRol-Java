@@ -1,6 +1,7 @@
 
 package com.company.view;
 import com.company.controller.GameController;
+import com.company.model.Personaje;
 
 import java.util.Calendar;
 import java.util.Scanner;
@@ -15,20 +16,21 @@ public class UIconsola {
         sc = new Scanner(System.in);
     }
 
-    public void print(String texto){
-        System.out.println(texto);
+    public void mostrar(String msj){
+        System.out.println(msj);
     }
 
-    public int menu() {
-        System.out.println("\nBienvenido");
-        System.out.println("¿Deseas jugar una partida?");
-        System.out.println("1. Jugar");
-        System.out.println("2. Leer historial de partidas");
-        System.out.println("3. Borrar historial");
-        System.out.println("4. Salir");
-        System.out.print("Elija una opción: ");
-
-        return sc.nextInt();
+    public String menu() {
+        return  "+-----------------------------------+\n" +
+                "|               MENU                |\n" +
+                "+-----------------------------------+\n" +
+                "|   1. Jugar                        |\n" +
+                "|   2. Leer historial de partidas   |\n" +
+                "|   3. Borrar historial             |\n" +
+                "|   4. Salir                        |\n" +
+                "+-----------------------------------+\n" +
+                "\n" +
+                "Elija una opción: ";
     }
 
     public String ingresarNombre(){
@@ -130,5 +132,26 @@ public class UIconsola {
 
         return fecha;
     }
+
+    public String obtenerDatosPersonaje(Personaje pj){
+
+        String data = "--------------------------------------\n" +
+                "         Raza:        " + pj.getRaza() + "\n" +
+                "         Nombre:      " + pj.getNombre() + "\n" +
+                "         Apodo:       " + pj.getApodo() + "\n" +
+                "         Nacimiento:  " + pj.getFechaNacimiento() + "\n" +
+                "         Edad:        " + pj.getEdad() + "\n" +
+                "         Salud:       " + pj.getSalud() + "\n" +
+                "         Velocidad:   " + pj.getVelocidad() + "\n" +
+                "         Destreza:    " + pj.getDestreza() + "\n" +
+                "         Fuerza:      " + pj.getFuerza() + "\n" +
+                "         Nivel:       " + pj.getNivel() + "\n" +
+                "         Armadura:    " + pj.getArmadura() + "\n" +
+                "--------------------------------------\n";
+
+        return data;
+    }
+
+
 
 }

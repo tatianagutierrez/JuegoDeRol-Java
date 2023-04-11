@@ -1,7 +1,11 @@
 package com.company;
+import com.company.controller.LoggerController;
 import com.company.controller.UIcontroller;
 import com.company.view.UIconsola;
 import com.company.view.UImenu;
+
+import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -9,7 +13,12 @@ public class Main {
 
         UIconsola consola = new UIconsola();
         UIcontroller controller = new UIcontroller();
-        int opcion = consola.menu();
+        LoggerController logger = new LoggerController();
+        Scanner sc = new Scanner(System.in);
+
+        logger.logear(consola.menu());
+        System.out.print(consola.menu());
+        int opcion = sc.nextInt();
 
         while (opcion != 4){
             switch (opcion){
@@ -25,7 +34,7 @@ public class Main {
                     controller.borrarHistorial();
                     break;
             }
-            opcion = consola.menu();
+            opcion = sc.nextInt();
         }
 
         /*

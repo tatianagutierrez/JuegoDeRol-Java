@@ -10,7 +10,7 @@ public class GameController {
 
     Jugador mainPlayer = new Jugador();
     Jugador pcPlayer = new Jugador();
-    //Log logger = new Log();
+    LoggerController logger = new LoggerController();
     UIconsola consola = new UIconsola();
     Humano humano;
     Elfo elfo;
@@ -18,41 +18,36 @@ public class GameController {
 
     public void iniciarJuego(String nombre, int opcionCrearJugadores){
 
-        mainPlayer.setNombre(nombre);
-        //logger.crearPartida();
+        logger.logearNuevaPartida();
 
-        System.out.println("Bienvenido " + nombre);
+        mainPlayer.setNombre(nombre);
+
+        logearYActualizarVista("Bienvenidx " + nombre);
 
         if (opcionCrearJugadores == 1) {
-
             for (int i = 0; i < 3; i++) {
-                System.out.println("Personaje de main player " + i);
-                crearMazo(mainPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de " + nombre);
+                crearCarta(mainPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista(consola.obtenerDatosPersonaje(mainPlayer.obtenerPersonajeByIndex(i)));
 
-                System.out.println("Personaje de pc player " + i);
-                crearMazo(pcPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de PC");
+                crearCarta(pcPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista(consola.obtenerDatosPersonaje(pcPlayer.obtenerPersonajeByIndex(i)));
             }
-
-             //cambiar por UIconsola.printMsg()
         }
         else {
-
             for (int i = 0; i < 3; i++) {
-                System.out.println("Personaje de main player " + i);
-                crearMazo(mainPlayer, datosAleatorios());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de " + nombre);
+                crearCarta(mainPlayer, datosAleatorios());
+                logearYActualizarVista(consola.obtenerDatosPersonaje(mainPlayer.obtenerPersonajeByIndex(i)));
 
-                System.out.println("Personaje de pc player " + i);
-                crearMazo(pcPlayer, datosAleatorios());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de PC");
+                crearCarta(pcPlayer, datosAleatorios());
+                logearYActualizarVista(consola.obtenerDatosPersonaje(pcPlayer.obtenerPersonajeByIndex(i)));
             }
-
         }
 
-        System.out.println("\nMAIN PLAYER");
-        mainPlayer.imprimirLista();
-        System.out.println("\nPC PLAYER");
-        pcPlayer.imprimirLista();
-
-        iniciarBatalla();
+        //iniciarBatalla();
 
     }
 
@@ -83,6 +78,7 @@ public class GameController {
 
 
     // Metodos auxiliares a datosAleatorios()
+    //TODO: ERROR Index 29 out of bounds for length 29
     private String[] generarNombreYApodo(int numNombre, int numApodo){
 
         List<String> nombres = Arrays.asList("Ivar", "Gerda", "Atila", "Eric", "César", "Leónidas", "Helga", "Sigrid", "William", "Ian", "Kruhlu", "Ulumpha", "Anakkin", "Ayleids", "Tjasatheni", "Sinnamnuria", "Trurnuk", "Xoruk", "Dakagrod", "Fëanor", "Legolas", "Arwen", "Isildur", "Lúthien", "Miriel", "Angrod", "Círdan", "Mablung", "Celeborn");
@@ -117,8 +113,7 @@ public class GameController {
     }
 
 
-    //TODO: Cambiar nombre a crearCarta porque crea una a la vez
-    public void crearMazo(Jugador player ,Object[] datos) {
+    public void crearCarta(Jugador player , Object[] datos) {
         int numRaza = (int) datos[0];
 
         if (numRaza == 1) {
@@ -134,6 +129,11 @@ public class GameController {
 
     }
 
+    private void logearYActualizarVista(String msj){
+        logger.logear(msj + "\n");
+        consola.mostrar(msj);
+    }
+
     public void iniciarBatalla() {
         Random random = new Random();
         ArrayList<Personaje> listaMainPlayer = mainPlayer.getListaPersonajes();
@@ -141,7 +141,8 @@ public class GameController {
 
         //Sortear ronda
         int jugadorAtacante = random.nextInt(2)+1;
-        System.out.println("El jugador que comienza es el " + jugadorAtacante);
+        logearYActualizarVista("El jugador que comienza es " + ((jugadorAtacante == 1) ? mainPlayer.getNombre() : "PC"));
+
 
         while (!listaMainPlayer.isEmpty() && !listaPcPlayer.isEmpty()) {
             //COMIENZA LA BATALLA
@@ -149,8 +150,8 @@ public class GameController {
             //Sortear personajes
             Personaje pjMainPlayer = mainPlayer.obtenerPersonajeRandom();
             Personaje pjPcPlayer = pcPlayer.obtenerPersonajeRandom();
-            System.out.println("\n Personjae Main " + pjMainPlayer);
-            System.out.println("\n Personjae PC " + pjPcPlayer);
+            logearYActualizarVista("\n Personjae Main " + pjMainPlayer);
+            logearYActualizarVista("\n Personjae PC " + pjPcPlayer);
 
             //Condicionales para empezar la ronda
             int cantAtaquesMainPlayer = 0;
@@ -165,12 +166,11 @@ public class GameController {
                 int valorAtaque, poderDefensa;
 
                 if (jugadorAtacante == 1){
-                    //TODO: Ver si puedo poner por ejemplo this.destreza
                     valorAtaque = pjMainPlayer.calcularValorDeAtaque(pjMainPlayer.getDestreza(), pjMainPlayer.getFuerza(), pjMainPlayer.getNivel());
                     poderDefensa = pjPcPlayer.calcularPoderDefensa(pjPcPlayer.getArmadura(), pjPcPlayer.getVelocidad());
 
                     danioAtaque = pjMainPlayer.atacar(valorAtaque, poderDefensa);
-                    System.out.println("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
+                    logearYActualizarVista("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
 
                     if (danioAtaque < 0){
                         danioAtaque = 0;
@@ -178,10 +178,10 @@ public class GameController {
 
                     pjPcPlayer.recibirDanio(danioAtaque);
                     saludPcPlayer = pjPcPlayer.getSalud();
-                    System.out.println("pcPlayer queda con " + String.format("%.2f", saludPcPlayer) + " de salud");
+                    logearYActualizarVista("pcPlayer queda con " + String.format("%.2f", saludPcPlayer) + " de salud");
 
                     cantAtaquesMainPlayer++;
-                    System.out.println("\n Cantidad ataques: " + cantAtaquesMainPlayer);
+                    logearYActualizarVista("\n Cantidad ataques: " + cantAtaquesMainPlayer);
                     jugadorAtacante = 2;
 
                 }
@@ -190,7 +190,7 @@ public class GameController {
                     poderDefensa = pjMainPlayer.calcularPoderDefensa(pjMainPlayer.getArmadura(), pjMainPlayer.getVelocidad());
 
                     danioAtaque = pjPcPlayer.atacar(valorAtaque, poderDefensa);
-                    System.out.println("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
+                    logearYActualizarVista("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
 
                     if (danioAtaque < 0){
                         danioAtaque = 0;
@@ -198,10 +198,10 @@ public class GameController {
 
                     pjMainPlayer.recibirDanio(danioAtaque);
                     saludMainPlayer = pjMainPlayer.getSalud();
-                    System.out.println("mainPlayer queda con " + String.format("%.2f", saludMainPlayer) + " de salud");
+                    logearYActualizarVista("mainPlayer queda con " + String.format("%.2f", saludMainPlayer) + " de salud");
 
                     cantAtaquesPcPlayer++;
-                    System.out.println("\n Cantidad ataques: " + cantAtaquesPcPlayer);
+                    logearYActualizarVista("\n Cantidad ataques: " + cantAtaquesPcPlayer);
                     jugadorAtacante = 1;
 
                 }
@@ -209,7 +209,7 @@ public class GameController {
 
             if (saludMainPlayer == 0){
                 listaMainPlayer.remove(pjMainPlayer);
-                System.out.println("El jugador 2 gana esta ronda");
+                logearYActualizarVista("El jugador 2 gana esta ronda");
                 jugadorAtacante = 1;
 
                 // Beneficio por haber ganado
@@ -217,7 +217,7 @@ public class GameController {
             }
             else if (saludPcPlayer == 0){
                 listaPcPlayer.remove(pjPcPlayer);
-                System.out.println("El jugador 1 gana esta ronda");
+                logearYActualizarVista("El jugador 1 gana esta ronda");
                 jugadorAtacante = 2;
 
                 pjMainPlayer.setSalud(saludMainPlayer + 10);
@@ -225,18 +225,18 @@ public class GameController {
             }
             else{
                 jugadorAtacante = random.nextInt(2)+1;
-                System.out.println("Fue un empate, la ronda vuelve a empezar.");
+                logearYActualizarVista("Fue un empate, la ronda vuelve a empezar.");
             }
 
         }
 
         if (listaMainPlayer.isEmpty()){
-            System.out.println("\nMain player se quedo sin cartas");
-            System.out.println("El ganador del juego es PC Player");
+            logearYActualizarVista("\nMain player se quedo sin cartas");
+            logearYActualizarVista("El ganador del juego es PC");
         }
         else {
-            System.out.println("\nPC Player se quedo sin cartas");
-            System.out.println("El ganador del juego es Main player");
+            logearYActualizarVista("\nPC Player se quedo sin cartas");
+            logearYActualizarVista("El ganador del juego es " + mainPlayer.getNombre());
         }
 
     }

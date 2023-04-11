@@ -167,23 +167,6 @@ public abstract class Personaje {
 
         this.setSalud(salud);
     }
-
-    @Override
-    public String toString() {
-        return "Personaje{" +
-                "raza='" + raza + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apodo='" + apodo + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", edad=" + edad +
-                ", salud=" + salud +
-                ", velocidad=" + velocidad +
-                ", destreza=" + destreza +
-                ", fuerza=" + fuerza +
-                ", nivel=" + nivel +
-                ", armadura=" + armadura +
-                '}';
-    }
 }
 
 
