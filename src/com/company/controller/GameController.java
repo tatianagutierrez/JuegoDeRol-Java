@@ -12,6 +12,7 @@ public class GameController {
     Jugador pcPlayer = new Jugador();
     LoggerController logger = new LoggerController();
     UIconsola consola = new UIconsola();
+    Random random = new Random();
     Humano humano;
     Elfo elfo;
     Orco orco;
@@ -21,8 +22,7 @@ public class GameController {
         logger.logearNuevaPartida();
 
         mainPlayer.setNombre(nombre);
-
-        logearYActualizarVista("Bienvenidx " + nombre);
+        pcPlayer.setNombre("PC");
 
         if (opcionCrearJugadores == 1) {
             for (int i = 0; i < 3; i++) {
@@ -37,26 +37,25 @@ public class GameController {
         }
         else {
             for (int i = 0; i < 3; i++) {
-                logearYActualizarVista("          Personaje " + (i + 1) + " de " + nombre);
                 crearCarta(mainPlayer, datosAleatorios());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de " + nombre);
                 logearYActualizarVista(consola.obtenerDatosPersonaje(mainPlayer.obtenerPersonajeByIndex(i)));
 
-                logearYActualizarVista("          Personaje " + (i + 1) + " de PC");
                 crearCarta(pcPlayer, datosAleatorios());
+                logearYActualizarVista("          Personaje " + (i + 1) + " de PC");
                 logearYActualizarVista(consola.obtenerDatosPersonaje(pcPlayer.obtenerPersonajeByIndex(i)));
             }
         }
 
-        //iniciarBatalla();
+        iniciarBatalla();
 
     }
 
     public Object[] datosAleatorios(){
-        Random random = new Random();
         int numRaza = random.nextInt(3)+1;
 
-        int numNombre = random.nextInt(29)+1;
-        int numApodo = random.nextInt(29)+1;
+        int numNombre = random.nextInt(29);
+        int numApodo = random.nextInt(29);
         String[] nombreApodo = generarNombreYApodo(numNombre, numApodo);
         String nombre = nombreApodo[0];
         String apodo = nombreApodo[1];
@@ -78,7 +77,6 @@ public class GameController {
 
 
     // Metodos auxiliares a datosAleatorios()
-    //TODO: ERROR Index 29 out of bounds for length 29
     private String[] generarNombreYApodo(int numNombre, int numApodo){
 
         List<String> nombres = Arrays.asList("Ivar", "Gerda", "Atila", "Eric", "César", "Leónidas", "Helga", "Sigrid", "William", "Ian", "Kruhlu", "Ulumpha", "Anakkin", "Ayleids", "Tjasatheni", "Sinnamnuria", "Trurnuk", "Xoruk", "Dakagrod", "Fëanor", "Legolas", "Arwen", "Isildur", "Lúthien", "Miriel", "Angrod", "Círdan", "Mablung", "Celeborn");
@@ -92,8 +90,6 @@ public class GameController {
     }
 
     private Calendar generarFechaNacimientoAleatoria(){
-
-        Random random = new Random();
         Calendar fecha = Calendar.getInstance();
         fecha.set (random.nextInt(300)+1723, random.nextInt(12)+1, random.nextInt(30)+1);
 
@@ -135,23 +131,22 @@ public class GameController {
     }
 
     public void iniciarBatalla() {
-        Random random = new Random();
         ArrayList<Personaje> listaMainPlayer = mainPlayer.getListaPersonajes();
         ArrayList<Personaje> listaPcPlayer = pcPlayer.getListaPersonajes();
 
         //Sortear ronda
         int jugadorAtacante = random.nextInt(2)+1;
         logearYActualizarVista("El jugador que comienza es " + ((jugadorAtacante == 1) ? mainPlayer.getNombre() : "PC"));
-
+        int contBatallas = 1;
 
         while (!listaMainPlayer.isEmpty() && !listaPcPlayer.isEmpty()) {
-            //COMIENZA LA BATALLA
+
+            logearYActualizarVista("\nBatalla N° " + contBatallas++ + "\n");
 
             //Sortear personajes
             Personaje pjMainPlayer = mainPlayer.obtenerPersonajeRandom();
             Personaje pjPcPlayer = pcPlayer.obtenerPersonajeRandom();
-            logearYActualizarVista("\n Personjae Main " + pjMainPlayer);
-            logearYActualizarVista("\n Personjae PC " + pjPcPlayer);
+            logearYActualizarVista(pjMainPlayer.getNombre() + "(" + mainPlayer.getNombre() + ") VS " + pjPcPlayer.getNombre() + "(PC)");
 
             //Condicionales para empezar la ronda
             int cantAtaquesMainPlayer = 0;
@@ -159,87 +154,87 @@ public class GameController {
             double saludMainPlayer = pjMainPlayer.getSalud();
             double saludPcPlayer = pjPcPlayer.getSalud();
 
-            double danioAtaque;
 
-            while ((cantAtaquesMainPlayer != 7 && cantAtaquesPcPlayer != 7) && (saludMainPlayer != 0.00 && saludPcPlayer != 0.00)){
+            while ((cantAtaquesMainPlayer != 7 || cantAtaquesPcPlayer != 7) && (saludMainPlayer != 0.00 && saludPcPlayer != 0.00)){
                 // COMIENZA LA RONDA X
-                int valorAtaque, poderDefensa;
 
                 if (jugadorAtacante == 1){
-                    valorAtaque = pjMainPlayer.calcularValorDeAtaque(pjMainPlayer.getDestreza(), pjMainPlayer.getFuerza(), pjMainPlayer.getNivel());
-                    poderDefensa = pjPcPlayer.calcularPoderDefensa(pjPcPlayer.getArmadura(), pjPcPlayer.getVelocidad());
+                    atacarYActualizarSalud(pjMainPlayer, pjPcPlayer);
 
-                    danioAtaque = pjMainPlayer.atacar(valorAtaque, poderDefensa);
-                    logearYActualizarVista("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
-
-                    if (danioAtaque < 0){
-                        danioAtaque = 0;
-                    }
-
-                    pjPcPlayer.recibirDanio(danioAtaque);
                     saludPcPlayer = pjPcPlayer.getSalud();
-                    logearYActualizarVista("pcPlayer queda con " + String.format("%.2f", saludPcPlayer) + " de salud");
-
                     cantAtaquesMainPlayer++;
-                    logearYActualizarVista("\n Cantidad ataques: " + cantAtaquesMainPlayer);
+                    logearYActualizarVista("Cantidad de ataques " + mainPlayer.getNombre() +  ": " + cantAtaquesMainPlayer + "\n");
                     jugadorAtacante = 2;
 
                 }
                 else{
-                    valorAtaque = pjPcPlayer.calcularValorDeAtaque(pjPcPlayer.getDestreza(), pjPcPlayer.getFuerza(), pjPcPlayer.getNivel());
-                    poderDefensa = pjMainPlayer.calcularPoderDefensa(pjMainPlayer.getArmadura(), pjMainPlayer.getVelocidad());
+                    atacarYActualizarSalud(pjPcPlayer, pjMainPlayer);
 
-                    danioAtaque = pjPcPlayer.atacar(valorAtaque, poderDefensa);
-                    logearYActualizarVista("El danio de ataque fue de: " + String.format("%.2f", danioAtaque));
-
-                    if (danioAtaque < 0){
-                        danioAtaque = 0;
-                    }
-
-                    pjMainPlayer.recibirDanio(danioAtaque);
                     saludMainPlayer = pjMainPlayer.getSalud();
-                    logearYActualizarVista("mainPlayer queda con " + String.format("%.2f", saludMainPlayer) + " de salud");
-
                     cantAtaquesPcPlayer++;
-                    logearYActualizarVista("\n Cantidad ataques: " + cantAtaquesPcPlayer);
+                    logearYActualizarVista("Cantidad de ataques PC: " + cantAtaquesPcPlayer + "\n");
                     jugadorAtacante = 1;
 
                 }
             }
 
             if (saludMainPlayer == 0){
-                listaMainPlayer.remove(pjMainPlayer);
-                logearYActualizarVista("El jugador 2 gana esta ronda");
+                eliminarPersonajeYDarBenficios(mainPlayer, pcPlayer, pjMainPlayer, pjPcPlayer);
                 jugadorAtacante = 1;
-
-                // Beneficio por haber ganado
-                pjPcPlayer.setSalud(saludPcPlayer + 10);
             }
             else if (saludPcPlayer == 0){
-                listaPcPlayer.remove(pjPcPlayer);
-                logearYActualizarVista("El jugador 1 gana esta ronda");
+                eliminarPersonajeYDarBenficios(pcPlayer, mainPlayer, pjPcPlayer, pjMainPlayer);
                 jugadorAtacante = 2;
-
-                pjMainPlayer.setSalud(saludMainPlayer + 10);
-
             }
             else{
                 jugadorAtacante = random.nextInt(2)+1;
                 logearYActualizarVista("Fue un empate, la ronda vuelve a empezar.");
             }
-
         }
 
-        if (listaMainPlayer.isEmpty()){
-            logearYActualizarVista("\nMain player se quedo sin cartas");
-            logearYActualizarVista("El ganador del juego es PC");
-        }
-        else {
-            logearYActualizarVista("\nPC Player se quedo sin cartas");
-            logearYActualizarVista("El ganador del juego es " + mainPlayer.getNombre());
-        }
+        mostrarGanador();
 
     }
 
+    public void eliminarPersonajeYDarBenficios(Jugador perdedor, Jugador ganador , Personaje pjPerdedor, Personaje pjGanador){
+        double saludGanador = pjGanador.getSalud();
+
+        perdedor.eliminarPersonaje(pjPerdedor);
+        logearYActualizarVista("El jugador " + ganador.getNombre()  + "gana esta ronda");
+
+        pjGanador.setSalud(saludGanador + 10);
+        logearYActualizarVista(pjGanador.getNombre() + " gana +10 de vida");
+
+    }
+
+    public void mostrarGanador(){
+        if (mainPlayer.getListaPersonajes().isEmpty()){
+            logearYActualizarVista("\n" + mainPlayer.getNombre() + " se quedo sin cartas");
+            logearYActualizarVista("El ganador del juego es PC");
+        }
+        else {
+            logearYActualizarVista("\nPC se quedo sin cartas");
+            logearYActualizarVista("El ganador del juego es " + mainPlayer.getNombre());
+        }
+    }
+
+    public void atacarYActualizarSalud(Personaje pj1, Personaje pj2) {
+        int valorAtaque, poderDefensa;
+        double danioAtaque;
+
+        valorAtaque = pj1.calcularValorDeAtaque(pj1.getDestreza(), pj1.getFuerza(), pj1.getNivel());
+        poderDefensa = pj2.calcularPoderDefensa(pj2.getArmadura(), pj2.getVelocidad());
+
+        danioAtaque = pj1.atacar(valorAtaque, poderDefensa);
+        logearYActualizarVista("El daño de ataque fue de: " + String.format("%.2f", danioAtaque));
+
+        if (danioAtaque < 0){
+            danioAtaque = 0;
+        }
+
+        pj2.recibirDanio(danioAtaque);
+        double saludPjAtacado = pj2.getSalud();
+        logearYActualizarVista( pj2.getNombre() + " queda con " + String.format("%.2f", saludPjAtacado) + " de salud");
+    }
 
 }

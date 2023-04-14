@@ -20,21 +20,13 @@ public class Jugador {
         return listaPersonajes;
     }
 
-    public void setListaPersonajes(ArrayList<Personaje> listaPersonajes) {
-        this.listaPersonajes = listaPersonajes;
-    }
-
     public void agregarPersonje(Personaje pj){
         listaPersonajes.add(pj);
     }
 
-    public void imprimirLista(){
-        for (Personaje pj: listaPersonajes) {
-            System.out.println(pj);
-        }
-        System.out.println("\n");
+    public void eliminarPersonaje(Personaje pj){
+        listaPersonajes.remove(pj);
     }
-
 
     public Personaje obtenerPersonajeRandom(){
         Random random = new Random();
