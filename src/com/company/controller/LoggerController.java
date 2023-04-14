@@ -29,7 +29,7 @@ public class LoggerController {
     public void logear(String msj){
         try {
             Files.writeString(FILE_PATH, msj,
-                    StandardOpenOption.CREATE,    //Crea el archivo. TODO: Ver si es necesario porque ya esta en logear partida
+                    StandardOpenOption.CREATE,    //Crea el archivo.
                     StandardOpenOption.APPEND);   //Si ya exite solo agrega la info
 
         } catch(IOException e) {
@@ -37,12 +37,19 @@ public class LoggerController {
         }
     }
 
-    public void leerArchivo() throws IOException {
-        Files.readString(FILE_PATH);
+    public String leerArchivo() throws IOException {
+        if (Files.exists(FILE_PATH)){
+            return Files.readString(FILE_PATH);
+        }
+        return "El archivo no existe";
     }
 
-    public void borrarArchivo() throws IOException {
-        Files.delete(FILE_PATH);
+    public String borrarArchivo() throws IOException {
+        if (Files.exists(FILE_PATH)){
+            Files.delete(FILE_PATH);
+            return "El historial se borro exitosamente";
+        }
+        return "El archivo no existe";
     }
 
     private String obtenerFehcaActual(){
