@@ -123,7 +123,6 @@ public abstract class Personaje {
     public void setArmadura(int armadura) {
         this.armadura = armadura;
     }
-//METODOS
 
 
         // CREAR PERSONAJE ALEATORIO
@@ -133,13 +132,6 @@ public abstract class Personaje {
     private int calcularPoderDisparo(int destreza, int fuerza, int nivelPersonaje){
         return destreza * fuerza * nivelPersonaje;
     }
-
-    /*
-    //TODO: Ver si es lo mismo
-    private int calcularPoderDisparo(){
-        return destreza * fuerza * nivel;
-    }
-     */
 
     private float calcularEfectividadDisparo(){
 
@@ -151,7 +143,6 @@ public abstract class Personaje {
         return Math.round(calcularPoderDisparo(destreza, fuerza, nivelPersonaje) * calcularEfectividadDisparo());
     }
 
-    // TODO: O le doy una variablidad como la efectividadDisparo o hago que se desgaste el poder en cada vuelta (por ejemplo bajar 1 punto desde 20)
     public int calcularPoderDefensa(int armadura, int velocidad){
         return armadura * velocidad;
     }

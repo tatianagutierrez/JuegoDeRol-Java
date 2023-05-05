@@ -2,21 +2,18 @@ package com.company;
 import com.company.controller.LoggerController;
 import com.company.controller.UIcontroller;
 import com.company.view.UIconsola;
-import com.company.view.UImenu;
 
+import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         UIconsola consola = new UIconsola();
         UIcontroller controller = new UIcontroller();
-        LoggerController logger = new LoggerController();
         Scanner sc = new Scanner(System.in);
 
-        logger.logear(consola.menu());
         System.out.print(consola.menu());
         int opcion = sc.nextInt();
 
@@ -34,13 +31,10 @@ public class Main {
                     controller.borrarHistorial();
                     break;
             }
+
+            System.out.print(consola.menu());
             opcion = sc.nextInt();
         }
-
-        /*
-        UImenu ui = new UImenu();
-        ui.setVisible(true);
-        */
     }
 }
 

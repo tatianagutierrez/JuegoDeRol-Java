@@ -21,8 +21,6 @@ public class Elfo extends Personaje{
         double danio = (( (double) (VA - PDEF) / 500) * 100) * 1.05;
 
         return (danio < 0)?0:danio;
-
-        //return ((( (double) (VA - PDEF) / 500) * 100) * 1.05);
     }
 
 }

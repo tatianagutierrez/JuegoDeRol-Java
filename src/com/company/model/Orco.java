@@ -21,7 +21,5 @@ public class Orco extends Personaje{
         double danio = (( (double) (VA - PDEF) / 500) * 100) * 1.1;
 
         return (danio < 0)?0:danio;
-
-        //return ((( (double) (VA - PDEF) / 500) * 100) * 1.1);
     }
 }
