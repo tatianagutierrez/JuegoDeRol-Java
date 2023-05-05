@@ -1,0 +1,676 @@
+
+
+         NUEVA PARTIDA
+--------------------------------
+    05-05-2023, 17:30:19 ART    
+--------------------------------
+
+          Personaje 1 de Tati
+--------------------------------------
+         Raza:        Orco
+         Nombre:      Angrod
+         Apodo:       Martillo estruendoso
+         Nacimiento:  06/05/1964
+         Edad:        58
+         Salud:       100.0
+         Velocidad:   5
+         Destreza:    2
+         Fuerza:      1
+         Nivel:       5
+         Armadura:    5
+--------------------------------------
+
+          Personaje 1 de PC
+--------------------------------------
+         Raza:        Humano
+         Nombre:      Fëanor
+         Apodo:       La victoria
+         Nacimiento:  25/02/1775
+         Edad:        248
+         Salud:       100.0
+         Velocidad:   10
+         Destreza:    2
+         Fuerza:      10
+         Nivel:       6
+         Armadura:    9
+--------------------------------------
+
+          Personaje 2 de Tati
+--------------------------------------
+         Raza:        Elfo
+         Nombre:      Eric
+         Apodo:       Sangre salvaje
+         Nacimiento:  08/05/1845
+         Edad:        177
+         Salud:       100.0
+         Velocidad:   4
+         Destreza:    4
+         Fuerza:      4
+         Nivel:       7
+         Armadura:    1
+--------------------------------------
+
+          Personaje 2 de PC
+--------------------------------------
+         Raza:        Orco
+         Nombre:      Helga
+         Apodo:       Martillo estruendoso
+         Nacimiento:  20/07/1826
+         Edad:        196
+         Salud:       100.0
+         Velocidad:   2
+         Destreza:    1
+         Fuerza:      9
+         Nivel:       7
+         Armadura:    3
+--------------------------------------
+
+          Personaje 3 de Tati
+--------------------------------------
+         Raza:        Orco
+         Nombre:      Trurnuk
+         Apodo:       La victoria
+         Nacimiento:  26/07/1763
+         Edad:        259
+         Salud:       100.0
+         Velocidad:   6
+         Destreza:    2
+         Fuerza:      5
+         Nivel:       5
+         Armadura:    4
+--------------------------------------
+
+          Personaje 3 de PC
+--------------------------------------
+         Raza:        Orco
+         Nombre:      Isildur
+         Apodo:       El hijo del león
+         Nacimiento:  09/05/1777
+         Edad:        245
+         Salud:       100.0
+         Velocidad:   2
+         Destreza:    3
+         Fuerza:      3
+         Nivel:       1
+         Armadura:    6
+--------------------------------------
+
+
+El jugador que comienza es Tati
+
+Batalla N° 1
+
+Eric(Tati) VS Helga(PC)
+
+Ronda 1
+El daño de ataque fue de: 6,93
+Helga queda con 93,07 de salud
+
+Ronda 2
+El daño de ataque fue de: 5,72
+Eric queda con 94,28 de salud
+
+Ronda 3
+El daño de ataque fue de: 4,83
+Helga queda con 88,24 de salud
+
+Ronda 4
+El daño de ataque fue de: 8,58
+Eric queda con 85,70 de salud
+
+Ronda 5
+El daño de ataque fue de: 10,50
+Helga queda con 77,74 de salud
+
+Ronda 6
+El daño de ataque fue de: 6,16
+Eric queda con 79,54 de salud
+
+Ronda 7
+El daño de ataque fue de: 13,65
+Helga queda con 64,09 de salud
+
+Ronda 8
+El daño de ataque fue de: 0,00
+Eric logró bloquear el ataque pero su armadura se desgastó y ahora es de 0
+Eric queda con 79,54 de salud
+
+Ronda 9
+El daño de ataque fue de: 0,21
+Helga queda con 63,88 de salud
+
+Ronda 10
+El daño de ataque fue de: 7,04
+Eric queda con 72,50 de salud
+
+Ronda 11
+El daño de ataque fue de: 14,07
+Helga queda con 49,81 de salud
+
+Ronda 12
+El daño de ataque fue de: 7,26
+Eric queda con 65,24 de salud
+
+Ronda 13
+El daño de ataque fue de: 3,36
+Helga queda con 46,45 de salud
+
+Ronda 14
+El daño de ataque fue de: 12,98
+Eric queda con 52,26 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es PC
+
+Batalla N° 2
+
+Trurnuk(Tati) VS Helga(PC)
+
+Ronda 1
+El daño de ataque fue de: 4,62
+Trurnuk queda con 95,38 de salud
+
+Ronda 2
+El daño de ataque fue de: 2,20
+Helga queda con 44,25 de salud
+
+Ronda 3
+El daño de ataque fue de: 7,92
+Trurnuk queda con 87,46 de salud
+
+Ronda 4
+El daño de ataque fue de: 2,86
+Helga queda con 41,39 de salud
+
+Ronda 5
+El daño de ataque fue de: 4,40
+Trurnuk queda con 83,06 de salud
+
+Ronda 6
+El daño de ataque fue de: 0,88
+Helga queda con 40,51 de salud
+
+Ronda 7
+El daño de ataque fue de: 2,42
+Trurnuk queda con 80,64 de salud
+
+Ronda 8
+El daño de ataque fue de: 0,44
+Helga queda con 40,07 de salud
+
+Ronda 9
+El daño de ataque fue de: 6,60
+Trurnuk queda con 74,04 de salud
+
+Ronda 10
+El daño de ataque fue de: 7,04
+Helga queda con 33,03 de salud
+
+Ronda 11
+El daño de ataque fue de: 7,92
+Trurnuk queda con 66,12 de salud
+
+Ronda 12
+El daño de ataque fue de: 2,64
+Helga queda con 30,39 de salud
+
+Ronda 13
+El daño de ataque fue de: 0,00
+Trurnuk logró bloquear el ataque pero su armadura se desgastó y ahora es de 3
+Trurnuk queda con 66,12 de salud
+
+Ronda 14
+El daño de ataque fue de: 8,14
+Helga queda con 22,25 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es Tati
+
+Batalla N° 3
+
+Eric(Tati) VS Helga(PC)
+
+Ronda 1
+El daño de ataque fue de: 0,00
+Helga logró bloquear el ataque pero su armadura se desgastó y ahora es de 2
+Helga queda con 22,25 de salud
+
+Ronda 2
+El daño de ataque fue de: 1,98
+Eric queda con 50,28 de salud
+
+Ronda 3
+El daño de ataque fue de: 14,91
+Helga queda con 7,34 de salud
+
+Ronda 4
+El daño de ataque fue de: 2,42
+Eric queda con 47,86 de salud
+
+Ronda 5
+El daño de ataque fue de: 18,06
+Helga queda con 0,00 de salud
+
+El jugador Tati gana esta ronda
+Eric gana +10 de vida y ahora su salud es de 47,86
+
+El jugador que comienza es PC
+
+Batalla N° 4
+
+Angrod(Tati) VS Isildur(PC)
+
+Ronda 1
+El daño de ataque fue de: 0,00
+Angrod logró bloquear el ataque pero su armadura se desgastó y ahora es de 4
+Angrod queda con 100,00 de salud
+
+Ronda 2
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 5
+Isildur queda con 100,00 de salud
+
+Ronda 3
+El daño de ataque fue de: 0,00
+Angrod logró bloquear el ataque pero su armadura se desgastó y ahora es de 3
+Angrod queda con 100,00 de salud
+
+Ronda 4
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 4
+Isildur queda con 100,00 de salud
+
+Ronda 5
+El daño de ataque fue de: 0,00
+Angrod logró bloquear el ataque pero su armadura se desgastó y ahora es de 2
+Angrod queda con 100,00 de salud
+
+Ronda 6
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 3
+Isildur queda con 100,00 de salud
+
+Ronda 7
+El daño de ataque fue de: 0,00
+Angrod logró bloquear el ataque pero su armadura se desgastó y ahora es de 1
+Angrod queda con 100,00 de salud
+
+Ronda 8
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 2
+Isildur queda con 100,00 de salud
+
+Ronda 9
+El daño de ataque fue de: 0,22
+Angrod queda con 99,78 de salud
+
+Ronda 10
+El daño de ataque fue de: 0,44
+Isildur queda con 99,56 de salud
+
+Ronda 11
+El daño de ataque fue de: 0,88
+Angrod queda con 98,90 de salud
+
+Ronda 12
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 1
+Isildur queda con 99,56 de salud
+
+Ronda 13
+El daño de ataque fue de: 0,00
+Angrod logró bloquear el ataque pero su armadura se desgastó y ahora es de 0
+Angrod queda con 98,90 de salud
+
+Ronda 14
+El daño de ataque fue de: 1,10
+Isildur queda con 98,46 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es PC
+
+Batalla N° 5
+
+Trurnuk(Tati) VS Isildur(PC)
+
+Ronda 1
+El daño de ataque fue de: 0,00
+Trurnuk logró bloquear el ataque pero su armadura se desgastó y ahora es de 2
+Trurnuk queda con 66,12 de salud
+
+Ronda 2
+El daño de ataque fue de: 3,08
+Isildur queda con 95,38 de salud
+
+Ronda 3
+El daño de ataque fue de: 0,00
+Trurnuk logró bloquear el ataque pero su armadura se desgastó y ahora es de 1
+Trurnuk queda con 66,12 de salud
+
+Ronda 4
+El daño de ataque fue de: 10,12
+Isildur queda con 85,26 de salud
+
+Ronda 5
+El daño de ataque fue de: 0,00
+Trurnuk logró bloquear el ataque pero su armadura se desgastó y ahora es de 0
+Trurnuk queda con 66,12 de salud
+
+Ronda 6
+El daño de ataque fue de: 5,94
+Isildur queda con 79,32 de salud
+
+Ronda 7
+El daño de ataque fue de: 0,22
+Trurnuk queda con 65,90 de salud
+
+Ronda 8
+El daño de ataque fue de: 2,20
+Isildur queda con 77,12 de salud
+
+Ronda 9
+El daño de ataque fue de: 0,66
+Trurnuk queda con 65,24 de salud
+
+Ronda 10
+El daño de ataque fue de: 3,74
+Isildur queda con 73,38 de salud
+
+Ronda 11
+El daño de ataque fue de: 0,88
+Trurnuk queda con 64,36 de salud
+
+Ronda 12
+El daño de ataque fue de: 9,90
+Isildur queda con 63,48 de salud
+
+Ronda 13
+El daño de ataque fue de: 0,22
+Trurnuk queda con 64,14 de salud
+
+Ronda 14
+El daño de ataque fue de: 7,92
+Isildur queda con 55,56 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es PC
+
+Batalla N° 6
+
+Trurnuk(Tati) VS Isildur(PC)
+
+Ronda 1
+El daño de ataque fue de: 0,22
+Trurnuk queda con 63,92 de salud
+
+Ronda 2
+El daño de ataque fue de: 0,00
+Isildur logró bloquear el ataque pero su armadura se desgastó y ahora es de 0
+Isildur queda con 55,56 de salud
+
+Ronda 3
+El daño de ataque fue de: 0,44
+Trurnuk queda con 63,48 de salud
+
+Ronda 4
+El daño de ataque fue de: 0,66
+Isildur queda con 54,90 de salud
+
+Ronda 5
+El daño de ataque fue de: 0,66
+Trurnuk queda con 62,82 de salud
+
+Ronda 6
+El daño de ataque fue de: 8,80
+Isildur queda con 46,10 de salud
+
+Ronda 7
+El daño de ataque fue de: 1,32
+Trurnuk queda con 61,50 de salud
+
+Ronda 8
+El daño de ataque fue de: 5,06
+Isildur queda con 41,04 de salud
+
+Ronda 9
+El daño de ataque fue de: 1,54
+Trurnuk queda con 59,96 de salud
+
+Ronda 10
+El daño de ataque fue de: 3,08
+Isildur queda con 37,96 de salud
+
+Ronda 11
+El daño de ataque fue de: 0,44
+Trurnuk queda con 59,52 de salud
+
+Ronda 12
+El daño de ataque fue de: 0,22
+Isildur queda con 37,74 de salud
+
+Ronda 13
+El daño de ataque fue de: 0,88
+Trurnuk queda con 58,64 de salud
+
+Ronda 14
+El daño de ataque fue de: 1,76
+Isildur queda con 35,98 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es PC
+
+Batalla N° 7
+
+Trurnuk(Tati) VS Fëanor(PC)
+
+Ronda 1
+El daño de ataque fue de: 21,80
+Trurnuk queda con 36,84 de salud
+
+Ronda 2
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 8
+Fëanor queda con 100,00 de salud
+
+Ronda 3
+El daño de ataque fue de: 24,00
+Trurnuk queda con 12,84 de salud
+
+Ronda 4
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 7
+Fëanor queda con 100,00 de salud
+
+Ronda 5
+El daño de ataque fue de: 22,40
+Trurnuk queda con 0,00 de salud
+
+El jugador PC gana esta ronda
+Fëanor gana +10 de vida y ahora su salud es de 100,00
+
+El jugador que comienza es Tati
+
+Batalla N° 8
+
+Eric(Tati) VS Isildur(PC)
+
+Ronda 1
+El daño de ataque fue de: 7,35
+Isildur queda con 28,63 de salud
+
+Ronda 2
+El daño de ataque fue de: 0,22
+Eric queda con 57,64 de salud
+
+Ronda 3
+El daño de ataque fue de: 10,92
+Isildur queda con 17,71 de salud
+
+Ronda 4
+El daño de ataque fue de: 1,76
+Eric queda con 55,88 de salud
+
+Ronda 5
+El daño de ataque fue de: 12,18
+Isildur queda con 5,53 de salud
+
+Ronda 6
+El daño de ataque fue de: 1,54
+Eric queda con 54,34 de salud
+
+Ronda 7
+El daño de ataque fue de: 3,57
+Isildur queda con 1,96 de salud
+
+Ronda 8
+El daño de ataque fue de: 1,54
+Eric queda con 52,80 de salud
+
+Ronda 9
+El daño de ataque fue de: 18,27
+Isildur queda con 0,00 de salud
+
+El jugador Tati gana esta ronda
+Eric gana +10 de vida y ahora su salud es de 52,80
+
+El jugador que comienza es PC
+
+Batalla N° 9
+
+Eric(Tati) VS Fëanor(PC)
+
+Ronda 1
+El daño de ataque fue de: 5,00
+Eric queda con 57,80 de salud
+
+Ronda 2
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 6
+Fëanor queda con 110,00 de salud
+
+Ronda 3
+El daño de ataque fue de: 21,40
+Eric queda con 36,40 de salud
+
+Ronda 4
+El daño de ataque fue de: 2,94
+Fëanor queda con 107,06 de salud
+
+Ronda 5
+El daño de ataque fue de: 12,00
+Eric queda con 24,40 de salud
+
+Ronda 6
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 5
+Fëanor queda con 107,06 de salud
+
+Ronda 7
+El daño de ataque fue de: 14,00
+Eric queda con 10,40 de salud
+
+Ronda 8
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 4
+Fëanor queda con 107,06 de salud
+
+Ronda 9
+El daño de ataque fue de: 23,00
+Eric queda con 0,00 de salud
+
+El jugador PC gana esta ronda
+Fëanor gana +10 de vida y ahora su salud es de 107,06
+
+El jugador que comienza es Tati
+
+Batalla N° 10
+
+Angrod(Tati) VS Fëanor(PC)
+
+Ronda 1
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 3
+Fëanor queda con 117,06 de salud
+
+Ronda 2
+El daño de ataque fue de: 21,40
+Angrod queda con 77,50 de salud
+
+Ronda 3
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 2
+Fëanor queda con 117,06 de salud
+
+Ronda 4
+El daño de ataque fue de: 14,80
+Angrod queda con 62,70 de salud
+
+Ronda 5
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 1
+Fëanor queda con 117,06 de salud
+
+Ronda 6
+El daño de ataque fue de: 21,40
+Angrod queda con 41,30 de salud
+
+Ronda 7
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de 0
+Fëanor queda con 117,06 de salud
+
+Ronda 8
+El daño de ataque fue de: 0,40
+Angrod queda con 40,90 de salud
+
+Ronda 9
+El daño de ataque fue de: 0,00
+Fëanor logró bloquear el ataque pero su armadura se desgastó y ahora es de -1
+Fëanor queda con 117,06 de salud
+
+Ronda 10
+El daño de ataque fue de: 6,20
+Angrod queda con 34,70 de salud
+
+Ronda 11
+El daño de ataque fue de: 3,74
+Fëanor queda con 113,32 de salud
+
+Ronda 12
+El daño de ataque fue de: 23,60
+Angrod queda con 11,10 de salud
+
+Ronda 13
+El daño de ataque fue de: 3,96
+Fëanor queda con 109,36 de salud
+
+Ronda 14
+El daño de ataque fue de: 6,20
+Angrod queda con 4,90 de salud
+
+Ambos jugadores agotaron sus ataques, la ronda vuelve a empezar.
+
+El jugador que comienza es Tati
+
+Batalla N° 11
+
+Angrod(Tati) VS Fëanor(PC)
+
+Ronda 1
+El daño de ataque fue de: 3,30
+Fëanor queda con 106,06 de salud
+
+Ronda 2
+El daño de ataque fue de: 17,20
+Angrod queda con 0,00 de salud
+
+El jugador PC gana esta ronda
+Fëanor gana +10 de vida y ahora su salud es de 106,06
+
+Tati se quedo sin cartas
+El ganador del juego es PC
