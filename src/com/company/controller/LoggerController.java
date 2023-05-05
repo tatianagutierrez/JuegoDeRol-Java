@@ -14,7 +14,7 @@ public class LoggerController {
 
     public void logearNuevaPartida(){
 
-        String msj = "\n         NUEVA PARTIDA\n" +
+        String msj = "\n\n         NUEVA PARTIDA\n" +
                 "--------------------------------\n    " +
                         obtenerFehcaActual() +
                 "    \n--------------------------------\n\n";
@@ -47,7 +47,7 @@ public class LoggerController {
     public String borrarArchivo() throws IOException {
         if (Files.exists(FILE_PATH)){
             Files.delete(FILE_PATH);
-            return "El historial se borro exitosamente";
+            return "El historial se borró exitosamente";
         }
         return "El archivo no existe";
     }

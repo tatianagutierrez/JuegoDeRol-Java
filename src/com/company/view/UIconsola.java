@@ -21,7 +21,7 @@ public class UIconsola {
     }
 
     public String menu() {
-        return  "+-----------------------------------+\n" +
+        return  "\n+-----------------------------------+\n" +
                 "|               MENU                |\n" +
                 "+-----------------------------------+\n" +
                 "|   1. Jugar                        |\n" +
@@ -29,7 +29,6 @@ public class UIconsola {
                 "|   3. Borrar historial             |\n" +
                 "|   4. Salir                        |\n" +
                 "+-----------------------------------+\n" +
-                "\n" +
                 "Elija una opción: ";
     }
 
@@ -39,11 +38,13 @@ public class UIconsola {
     }
 
     public int opcionCreacionPersonajes(){
-        System.out.println("Como deseas crear los personajes?");
+        System.out.println("\nComo deseas crear los personajes?");
         System.out.println("1. Manual");
         System.out.println("2. Aleatorio");
         System.out.print("Elija una opción: ");
-        return sc.nextInt();
+        int opcion = sc.nextInt();
+        System.out.println("\n");
+        return opcion;
     }
 
     public Object[] ingresarDatosPersonaje() {
@@ -135,7 +136,7 @@ public class UIconsola {
 
     public String obtenerDatosPersonaje(Personaje pj){
 
-        String data = "--------------------------------------\n" +
+        return  "--------------------------------------\n" +
                 "         Raza:        " + pj.getRaza() + "\n" +
                 "         Nombre:      " + pj.getNombre() + "\n" +
                 "         Apodo:       " + pj.getApodo() + "\n" +
@@ -148,10 +149,6 @@ public class UIconsola {
                 "         Nivel:       " + pj.getNivel() + "\n" +
                 "         Armadura:    " + pj.getArmadura() + "\n" +
                 "--------------------------------------\n";
-
-        return data;
     }
-
-
 
 }

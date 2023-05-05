@@ -26,12 +26,12 @@ public class GameController {
 
         if (opcionCrearJugadores == 1) {
             for (int i = 0; i < 3; i++) {
-                logearYActualizarVista("          Personaje " + (i + 1) + " de " + nombre);
                 crearCarta(mainPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista("\n          Personaje " + (i + 1) + " de " + nombre);
                 logearYActualizarVista(consola.obtenerDatosPersonaje(mainPlayer.obtenerPersonajeByIndex(i)));
 
-                logearYActualizarVista("          Personaje " + (i + 1) + " de PC");
                 crearCarta(pcPlayer, consola.ingresarDatosPersonaje());
+                logearYActualizarVista("\n          Personaje " + (i + 1) + " de PC");
                 logearYActualizarVista(consola.obtenerDatosPersonaje(pcPlayer.obtenerPersonajeByIndex(i)));
             }
         }
@@ -136,11 +136,11 @@ public class GameController {
 
         //Sortear ronda
         int jugadorAtacante = random.nextInt(2)+1;
-        logearYActualizarVista("El jugador que comienza es " + ((jugadorAtacante == 1) ? mainPlayer.getNombre() : "PC"));
         int contBatallas = 1;
 
         while (!listaMainPlayer.isEmpty() && !listaPcPlayer.isEmpty()) {
 
+            logearYActualizarVista("\nEl jugador que comienza es " + ((jugadorAtacante == 1) ? mainPlayer.getNombre() : "PC"));
             logearYActualizarVista("\nBatalla N° " + contBatallas++ + "\n");
 
             //Sortear personajes
@@ -153,17 +153,18 @@ public class GameController {
             int cantAtaquesPcPlayer = 0;
             double saludMainPlayer = pjMainPlayer.getSalud();
             double saludPcPlayer = pjPcPlayer.getSalud();
+            int contRondas = 1;
 
 
             while ((cantAtaquesMainPlayer != 7 || cantAtaquesPcPlayer != 7) && (saludMainPlayer != 0.00 && saludPcPlayer != 0.00)){
                 // COMIENZA LA RONDA X
+                logearYActualizarVista("\nRonda " + contRondas++);
 
                 if (jugadorAtacante == 1){
                     atacarYActualizarSalud(pjMainPlayer, pjPcPlayer);
 
                     saludPcPlayer = pjPcPlayer.getSalud();
                     cantAtaquesMainPlayer++;
-                    logearYActualizarVista("Cantidad de ataques " + mainPlayer.getNombre() +  ": " + cantAtaquesMainPlayer + "\n");
                     jugadorAtacante = 2;
 
                 }
@@ -172,7 +173,6 @@ public class GameController {
 
                     saludMainPlayer = pjMainPlayer.getSalud();
                     cantAtaquesPcPlayer++;
-                    logearYActualizarVista("Cantidad de ataques PC: " + cantAtaquesPcPlayer + "\n");
                     jugadorAtacante = 1;
 
                 }
@@ -188,7 +188,7 @@ public class GameController {
             }
             else{
                 jugadorAtacante = random.nextInt(2)+1;
-                logearYActualizarVista("Fue un empate, la ronda vuelve a empezar.");
+                logearYActualizarVista("\nAmbos jugadores agotaron sus ataques, la ronda vuelve a empezar.");
             }
         }
 
@@ -200,10 +200,10 @@ public class GameController {
         double saludGanador = pjGanador.getSalud();
 
         perdedor.eliminarPersonaje(pjPerdedor);
-        logearYActualizarVista("El jugador " + ganador.getNombre()  + "gana esta ronda");
+        logearYActualizarVista("\nEl jugador " + ganador.getNombre()  + " gana esta ronda");
 
         pjGanador.setSalud(saludGanador + 10);
-        logearYActualizarVista(pjGanador.getNombre() + " gana +10 de vida");
+        logearYActualizarVista(pjGanador.getNombre() + " gana +10 de vida y ahora su salud es de " + String.format("%.2f", saludGanador));
 
     }
 
@@ -228,8 +228,12 @@ public class GameController {
         danioAtaque = pj1.atacar(valorAtaque, poderDefensa);
         logearYActualizarVista("El daño de ataque fue de: " + String.format("%.2f", danioAtaque));
 
-        if (danioAtaque < 0){
+        if (danioAtaque <= 0.00){
             danioAtaque = 0;
+            pj2.setArmadura(pj2.getArmadura() - 1);
+
+            logearYActualizarVista(pj2.getNombre() + " logró bloquear el ataque pero su armadura se desgastó y ahora es de " + pj2.getArmadura());
+
         }
 
         pj2.recibirDanio(danioAtaque);
